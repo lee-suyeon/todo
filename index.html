@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>MVC</title>
+	</head>
+	<body>
+		<div id="todo-app">
+			<header class="header">
+				<h1>todos</h1>
+				<input class="new-todo" placeholer="할일을 입력해주세요." autofocus>
+				<input type="submit" value="추가" class="add-btn"/>
+			</header>
+			<div class="main">
+				<ul class="todo-list"></ul>
+				<footer class="footer">
+					<span class="todo-count"></span>
+				</footer>
+			</div>
+		<script type="module" src="app.js"></script>
+	</body>
+</html>
