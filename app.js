@@ -6,5 +6,5 @@ window.addEventListener('DOMContentLoaded', function() {
   console.log("success window onload");
   const model = new Model();
   const view = new View(model);
-  const controller = new Controller(model, view);
+  new Controller(model, view);
 });
