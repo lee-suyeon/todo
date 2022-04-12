@@ -8,4 +8,24 @@ li.completed {
 
 li {
   list-style: none;
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+li.completed .todo-text {
+  text-decoration-line: line-through;
+  color: gray;
+}
+
+.delete-btn {
+  display: none;
+}
+
+li:hover .delete-btn {
+  display: inline;
+}
+
+.delete-btn {
+  cursor: pointer;
 }

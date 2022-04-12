@@ -15,25 +15,21 @@ class Model {
       callback(this.todoList)
     }
   }
+
+  toggleCheck(id, callback) {
+    let findIndex = this.todoList.findIndex(list => list.id === parseInt(id));
+
+    if(findIndex !== -1) {
+      this.todoList[findIndex].completed = !this.todoList[findIndex].completed
+    }
+    if(callback) {
+      callback(this.todoList)
+    }
+  }
+  
+  getTodoList() {
+    return this.todoList;
+  }
 }
 
 export default Model
-
-// remove(query, callback) {
-//   let k;
-
-//   const todos = this.getLocalStorage().filter(todo => {
-//     for (k in query) {
-//       if (query[k] !== todo[k]) {
-//         return true;
-//       }
-//     }
-//     return false;
-//   });
-
-//   this.setLocalStorage(todos);
-
-//   if (callback) {
-//     callback(todos);
-//   }
-// }

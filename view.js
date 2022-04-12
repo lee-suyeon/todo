@@ -5,19 +5,20 @@ class View {
     this.newTodo = document.querySelector('.new-todo')
     this.addBtn = document.querySelector('.add-btn')
   }
+  // <input
+  //   type="checkbox"
+  //   ${completed ? "checked" : ""}
+  // />
+  // <label>${text}</label>
 
   render(todos) {
     let list = todos.map(todo => {
       const { text, completed } = todo;
       let item = 
-        `<li id=${todo.id} ${completed ? 'class="completed"' : ""}>
-          <input
-            type="checkbox"
-            class="todo-item"
-            ${completed ? "checked" : ""}
-          />
-          <label>${text}</label>
-          <button class="delete-btn">삭제</button>
+        `<li id=${todo.id} class="todo-item ${completed ? "completed" : ""}">
+          <span>◾️</span>
+          <span class="todo-text">${text}</span>
+          <span class="delete-btn">❌</span>
         </li>`
       return item;
     })
@@ -50,7 +51,14 @@ class View {
 		if (deleteElement) {
 			this.todoList.removeChild(deleteElement);
 		}
-	}
+  }
+
+  bindToggleChecked(handler) {
+    this.todoList.addEventListener('click', (event) => {
+      let list = event.target.closest('li')
+      handler(list.id)
+    })
+  }
 }
 
 export default View;
