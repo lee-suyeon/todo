@@ -5,6 +5,7 @@ class Controller{
     view.bindAddItem(this.addTodoItem.bind(this))
     view.bindDeleteItem(this.deleteTodoItem.bind(this))
     view.bindToggleChecked(this.toggleChecked.bind(this))
+    view.bindDeleteAllItem(this.deleteAllItem.bind(this))
   }
 
   addTodoItem(text) {
@@ -21,6 +22,12 @@ class Controller{
 
   toggleChecked(id) {
     this.model.toggleCheck(id, () => {
+      this.view.render(this.model.todoList)
+    })
+  }
+
+  deleteAllItem() {
+    this.model.deleteAllItem(() => {
       this.view.render(this.model.todoList)
     })
   }

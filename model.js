@@ -26,9 +26,20 @@ class Model {
       callback(this.todoList)
     }
   }
+
+  deleteAllItem(callback) {
+    this.todoList = [];
+    if(callback) {
+      callback(this.todoList)
+    }
+  }
   
   getTodoList() {
     return this.todoList;
+  }
+
+  getTodoListLength() {
+    return this.todoList.size;
   }
 }
 

@@ -4,12 +4,8 @@ class View {
     this.todoList = document.querySelector('.todo-list')
     this.newTodo = document.querySelector('.new-todo')
     this.addBtn = document.querySelector('.add-btn')
+    this.footer = document.querySelector('.footer')
   }
-  // <input
-  //   type="checkbox"
-  //   ${completed ? "checked" : ""}
-  // />
-  // <label>${text}</label>
 
   render(todos) {
     let list = todos.map(todo => {
@@ -52,6 +48,14 @@ class View {
 			this.todoList.removeChild(deleteElement);
 		}
   }
+  
+  bindDeleteAllItem(handler) {
+    this.footer.addEventListener('click', (event) => {
+      let target = event.target;
+      if(target.className !== "all-delete") return;
+      handler()
+    })
+  }
 
   bindToggleChecked(handler) {
     this.todoList.addEventListener('click', (event) => {
@@ -59,6 +63,7 @@ class View {
       handler(list.id)
     })
   }
+
 }
 
 export default View;
